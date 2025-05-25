@@ -1,0 +1,6 @@
+.defaultlayout {
+  /* max-width: 1200px; */
+  /* max-width: 600px; */
+  display: grid;
+  margin: auto;
+}

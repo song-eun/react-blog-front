@@ -1,0 +1,36 @@
+.container {
+  width: 60%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.container input,
+.container button {
+  width: 100%;
+  border-radius: 0.25em;
+  padding: 1em;
+}
+
+.container input {
+  border: 1px solid lightblue;
+  outline: none;
+}
+
+.container input:focus {
+  background-color: lightblue;
+}
+
+.container strong {
+  color: red;
+  font-weight: normal;
+  font-size: 0.75em;
+}
+
+.container button {
+  background-color: lightskyblue;
+  align-self: center;
+}

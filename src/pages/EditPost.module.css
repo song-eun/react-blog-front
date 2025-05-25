@@ -1,0 +1,82 @@
+.createPost,
+.editPost {
+  padding: 0 2rem;
+}
+
+.writecon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.writecon > input {
+  padding: 1rem;
+}
+
+.writecon > * {
+  width: 100%;
+}
+
+.writecon label {
+  margin-top: 1rem;
+  color: #62605f;
+}
+
+.writecon > textarea {
+  height: 300px;
+}
+
+.writecon > button {
+  padding: 1rem;
+  width: 200px;
+}
+
+.imageNote {
+  font-size: 0.75rem;
+  color: red;
+  width: 100%;
+}
+
+.writecon .previewImage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.writecon .previewImage img {
+  width: 100px;
+}
+
+.editorWrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.writecon button[type='submit'] {
+  margin-bottom: 4rem;
+  padding: 10px 20px;
+  background-color: #20211e;
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.writecon button[type='submit']:hover {
+  /* background-color: #45a049; */
+  filter: brightness(200%);
+}
+
+.writecon button[type='submit']:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 0.5em;
+  margin-bottom: 20px;
+}
