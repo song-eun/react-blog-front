@@ -15,16 +15,16 @@ export const PostListPage = () => {
 
   const lastPostElementRef = useCallback(
     node => {
-      if (isLoading || !node) return
+      if (isLoading) return
       if (observer.current) observer.current.disconnect()
+
       observer.current = new IntersectionObserver(entries => {
-        console.log('entries----', entries)
         if (entries[0].isIntersecting && hasMore) {
           setPage(prev => prev + 1)
         }
       })
 
-      observer.current.observe(node)
+      if (node) observer.current.observe(node)
     },
     [isLoading, hasMore]
   )
@@ -32,8 +32,7 @@ export const PostListPage = () => {
   useEffect(() => {
     const fetchPostList = async () => {
       try {
-        // 페이지가 0보다 크면 추가 데이터 불러오기
-        if (page > 0) setIsLoading(true)
+        setIsLoading(true)
 
         const data = await getPostList(page)
 
