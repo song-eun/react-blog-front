@@ -6,6 +6,7 @@ import DOMPurify from 'dompurify'
 import { formatDate } from '../util/feature'
 import { useSelector } from 'react-redux'
 import Modal from '../components/Modal'
+import { LikeButton } from '../components/LikeButton'
 
 export const PostDetailPage = () => {
   const { postId } = useParams()
@@ -75,9 +76,7 @@ export const PostDetailPage = () => {
           className={`${css.content} ql-content`}
           dangerouslySetInnerHTML={{ __html: clean }}
         ></div>
-        <p>
-          <span>👍</span> <span>30</span>
-        </p>
+        {post.likes && <LikeButton postId={postId} likes={post.likes} />}
         <div className={css.comment}>댓글 리스트</div>
       </section>
       {isModalOpen && (

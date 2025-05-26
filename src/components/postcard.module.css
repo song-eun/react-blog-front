@@ -83,11 +83,7 @@
   margin-bottom: 1rem;
 }
 
-.heart {
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.heart.liked {
-  color: red;
+.actions {
+  display: flex;
+  align-items: center;
 }

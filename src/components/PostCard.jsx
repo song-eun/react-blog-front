@@ -2,12 +2,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import css from './postcard.module.css'
 import { formatDate } from '../util/feature'
 import noCoverImg from '../assets/no-img.png'
+import { LikeButton } from './LikeButton'
 
 export const PostCard = ({ post }) => {
-  const { title, summary, createdAt, author, cover, _id } = post
+  const { title, summary, createdAt, author, cover, _id, likes } = post
   const navigate = useNavigate()
+
   const handleClick = () => {
     navigate(`/post/${_id}`)
+  }
+
+  const handleAuthorClick = e => {
+    e.stopPropagation()
   }
 
   return (
@@ -22,13 +28,14 @@ export const PostCard = ({ post }) => {
 
       <div className={css.info}>
         <p>
-          <Link to={'/mypage'} className={css.author}>
+          <Link to={'/mypage'} className={css.author} onClick={handleAuthorClick}>
             {author}
           </Link>
           <time className={css.date}>{formatDate(createdAt)}</time>
         </p>
-        <p>
-          <span>❤️</span> <span>30</span> <span>💬</span> <span>30</span>
+        <p className={css.actions}>
+          <LikeButton postId={_id} likes={likes} />
+          <span>💬</span> <span>30</span>
         </p>
       </div>
       <p className={css.summary}>{summary}</p>
