@@ -53,9 +53,23 @@
 }
 
 .btns {
-  color: #62605f;
   display: flex;
   gap: 1rem;
+}
+
+.btns a,
+.btns button {
+  color: #62605f;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btns a:hover,
+.btns button:hover {
+  background-color: rgba(55, 53, 47, 0.06);
 }
 
 .author {
