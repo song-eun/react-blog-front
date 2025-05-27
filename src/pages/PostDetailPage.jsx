@@ -7,13 +7,17 @@ import { formatDate } from '../util/feature'
 import { useSelector } from 'react-redux'
 import Modal from '../components/Modal'
 import { LikeButton } from '../components/LikeButton'
+import { Comments } from '../components/Comments'
 
 export const PostDetailPage = () => {
   const { postId } = useParams()
   const username = useSelector(state => state.user.info.username)
+  const navigate = useNavigate()
+
   const [post, setPost] = useState({})
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const navigate = useNavigate()
+  // 나중에 사용 예정
+  const [commentCount, setCommentCount] = useState(0)
 
   const clean = DOMPurify.sanitize(post?.content)
 
@@ -22,12 +26,17 @@ export const PostDetailPage = () => {
       try {
         const data = await getPostDetail(postId)
         setPost(data)
+        setCommentCount(data.commentCount || 0)
       } catch (error) {
         console.error(error)
       }
     }
     fetchPostDetail()
   }, [postId])
+
+  const updateCommentCount = count => {
+    setCommentCount(count)
+  }
 
   const handleDeletePost = async () => {
     try {
@@ -77,7 +86,12 @@ export const PostDetailPage = () => {
           dangerouslySetInnerHTML={{ __html: clean }}
         ></div>
         {post.likes && <LikeButton postId={postId} likes={post.likes} />}
-        <div className={css.comment}>댓글 리스트</div>
+        {/* <div className={css.comment}>댓글 리스트</div> */}
+        <Comments
+          postId={postId}
+          postAuthor={post.author}
+          onCommentCountChange={updateCommentCount}
+        />
       </section>
       {isModalOpen && (
         <Modal

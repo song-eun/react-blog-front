@@ -1,0 +1,83 @@
+.comments form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #ededec;
+}
+
+.comments .title {
+  color: rgb(115, 114, 110);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.comments textarea {
+  flex: 1;
+  outline: none;
+  border: none;
+  /* padding: 0.5rem 1rem; */
+  padding: 1rem;
+  font-family: inherit;
+  resize: none;
+}
+
+.list {
+  padding: 0.5rem;
+  /* border-left: 1px dotted #ededec; */
+}
+
+.comment {
+  font-size: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.author {
+  font-weight: bold;
+  cursor: pointer;
+  /* padding: 0.5rem; */
+  padding-right: 0.5rem;
+  text-align: center;
+  /* border-radius: 0.6rem; */
+}
+
+.author:hover {
+  filter: brightness(50%);
+  /* background-color: rgba(55, 53, 47, 0.06); */
+}
+
+.date {
+  color: rgba(70, 68, 64, 0.45);
+  font-size: 0.7rem;
+}
+
+.text {
+  width: 100%;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.btns button {
+  /* color: rgba(70, 68, 64, 0.45); */
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.btns button:hover {
+  background-color: rgba(55, 53, 47, 0.06);
+}
+
+.logMessage {
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: #eaeaea;
+  margin: 1rem 0;
+}

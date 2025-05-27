@@ -3,6 +3,7 @@ import css from './postcard.module.css'
 import { formatDate } from '../util/feature'
 import noCoverImg from '../assets/no-img.png'
 import { LikeButton } from './LikeButton'
+import { MessageSquare } from 'lucide-react'
 
 export const PostCard = ({ post }) => {
   const { title, summary, createdAt, author, cover, _id, likes } = post
@@ -35,7 +36,10 @@ export const PostCard = ({ post }) => {
         </p>
         <p className={css.actions}>
           <LikeButton postId={_id} likes={likes} />
-          <span>💬</span> <span>30</span>
+          <span className={css.comment}>
+            <MessageSquare size={16} />
+            <span>{post.commentCount || 0}</span>
+          </span>
         </p>
       </div>
       <p className={css.summary}>{summary}</p>
