@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import QuillEditor from '../components/QuillEditor'
-import css from './Editpost.module.css'
+import css from './EditPost.module.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getPostDetail, updatePost } from '../apis/postApi'
