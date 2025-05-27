@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toggleLike } from '../apis/postApi'
 import { ThumbsUp } from 'lucide-react'
+import css from './LikeButton.module.css'
 
 export const LikeButton = ({ postId, likes }) => {
   const navigate = useNavigate()
@@ -48,8 +49,8 @@ export const LikeButton = ({ postId, likes }) => {
   }
 
   return (
-    <span>
-      <span onClick={handleLikeToggle} style={{ cursor: 'pointer', marginRight: '0.2rem' }}>
+    <span className={css.like}>
+      <span onClick={handleLikeToggle}>
         <ThumbsUp size={16} fill={isLiked ? 'black' : 'none'} />
       </span>
       <span>{likesCount}</span>
