@@ -3,12 +3,12 @@ axios.defaults.withCredentials = true // 모든 요청에 대해 withCredentials
 const API_URL = import.meta.env.VITE_BACK_URL
 
 export const createPost = async postData => {
-  const response = await axios.post(`${API_URL}/postWrite`, postData)
+  const response = await axios.post(`${API_URL}/post`, postData)
   return response.data
 }
 
 export const getPostList = async (page = 0, limit = 3) => {
-  const response = await axios.get(`${API_URL}/postList`, { params: { page, limit } })
+  const response = await axios.get(`${API_URL}/post`, { params: { page, limit } })
   return response.data
 }
 
@@ -29,6 +29,6 @@ export const updatePost = async (postId, postData) => {
 }
 
 export const toggleLike = async postId => {
-  const response = await axios.post(`${API_URL}/like/${postId}`)
+  const response = await axios.post(`${API_URL}/post/${postId}/like`)
   return response.data
 }
