@@ -29,7 +29,7 @@ export const PostCard = ({ post }) => {
 
       <div className={css.info}>
         <p>
-          <Link to={'/mypage'} className={css.author} onClick={handleAuthorClick}>
+          <Link to={`/users/${author}`} className={css.author} onClick={handleAuthorClick}>
             {author}
           </Link>
           <time className={css.date}>{formatDate(createdAt)}</time>
